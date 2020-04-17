@@ -8,7 +8,7 @@ metadata:
 apiVersion: v1
 kind: Service
 metadata:
-  name: node-web-app
+  name: docker_web_app
   namespace: web-app
 spec:
   ports:
@@ -16,7 +16,7 @@ spec:
     targetPort: node-port
     protocol: TCP
   selector:
-    app: node-web-app
+    app: docker_web_app
   type: LoadBalancer
   ports:
   - protocol: TCP
@@ -26,10 +26,10 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-web-app
+  name: docker_web_app
   namespace: web-app
   labels:
-    app: node-web-app
+    app: docker_web_app
   annotations:
     fluxcd.io/automated: "true"
     fluxcd.io/tag.node-web-app: semver:~1.0.0
@@ -40,11 +40,11 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: node-web-app
+      app: docker_web_app
   template:
     metadata:
       labels:
-        app: node-web-app
+        app: docker_web_app
     spec:
       containers:
       - name: node-web-app
