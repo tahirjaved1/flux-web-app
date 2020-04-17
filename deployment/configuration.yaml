@@ -48,7 +48,7 @@ spec:
     spec:
       containers:
       - name: node-web-app
-        image: gynther/node-web-app:1.0.1
+        image: gynther/node-web-app:1.0.0
         ports:
         - name: node-port
           containerPort: 8080
