@@ -18,10 +18,6 @@ spec:
   selector:
     app: docker-web-app
   type: LoadBalancer
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080
 ---
 apiVersion: apps/v1
 kind: Deployment
